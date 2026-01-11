@@ -1,0 +1,14 @@
+From: IT Operations <it-operations@company.com>
+To: employee@company.com
+Subject: Scheduled Email Maintenance Notification
+
+Dear Team,
+
+This is to inform you that scheduled maintenance will be performed on the email system
+on Saturday between 02:00 AM and 04:00 AM IST.
+
+No action is required from your side during this period.
+
+Regards,
+IT Operations Team
+Company Name

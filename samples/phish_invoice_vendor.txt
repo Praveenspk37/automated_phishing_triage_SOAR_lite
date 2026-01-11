@@ -1,0 +1,14 @@
+From: Accounts <billing@vendor-invoice.com>
+To: finance@company.com
+Subject: Outstanding Invoice – Immediate Attention Required
+
+Dear Customer,
+
+Please review the attached invoice which is pending payment.
+Kindly process the payment at the earliest to avoid late payment charges.
+
+Invoice Portal:
+http://invoice-download.vendor-secure.com/view
+
+Best Regards,
+Accounts Team

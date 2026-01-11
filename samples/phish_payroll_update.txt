@@ -1,0 +1,13 @@
+From: HR Team <hr-payroll@company-hr-support.com>
+To: employee@company.com
+Subject: Payroll Update – Immediate Review Required
+
+Hello,
+
+We have identified an issue with your payroll information for the current pay cycle.
+To avoid delays in salary processing, please review and confirm your details at the link below:
+
+http://company-payroll-review.com/login
+
+Thank you,
+Human Resources

@@ -1,2 +1,8 @@
-Indicator,Domain Age (Days),VT Malicious,VT Suspicious,Risk Score,Recommendation
-http://secure-login-reset.company-support.com/verify,Unknown,0,0,70,High Risk - Escalation Recommended
+File Name,Classification,Indicator,Domain Age (Days),VT Malicious,VT Suspicious,Risk Score,Recommendation
+fp_hr_policy_update.txt,False Positive,No URLs found,N/A,0,0,0,False Positive - No Escalation
+fp_it_maintenance.txt,False Positive,No URLs found,N/A,0,0,0,False Positive - No Escalation
+phish_invoice_vendor.txt,True Positive,http://invoice-download.vendor-secure.com/view,Unknown,0,0,70,High Risk - Escalation Recommended
+phish_password_reset.txt,True Positive,http://secure-login-reset.company-support.com/verify,Unknown,0,0,70,High Risk - Escalation Recommended
+phish_payroll_update.txt,True Positive,http://company-payroll-review.com/login,Unknown,0,0,70,High Risk - Escalation Recommended
+spam_job_alert.txt,False Positive,http://careerupdates.com/login,Unknown,0,0,70,False Positive - No Escalation
+spam_marketing_offer.txt,False Positive,http://www.dealszone.com/offers,Unknown,0,0,20,False Positive - No Escalation

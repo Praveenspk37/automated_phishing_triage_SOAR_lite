@@ -1,0 +1,13 @@
+From: Job Alerts <jobs@careerupdates.com>
+To: employee@company.com
+Subject: New Job Opportunities Matching Your Profile
+
+Hello,
+
+We found multiple job opportunities matching your profile.
+Log in to view available roles and apply now.
+
+http://careerupdates.com/login
+
+Thank you,
+Career Updates Team
