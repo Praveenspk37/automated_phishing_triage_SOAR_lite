@@ -1,9 +1,8 @@
 import re
 import csv
 import whois
-import requests
 from datetime import datetime
-from config import VIRUSTOTAL_API_KEY, ABUSEIPDB_API_KEY
+from config import VIRUSTOTAL_API_KEY
 
 # -------------------------------
 # IOC Extraction
@@ -50,48 +49,14 @@ def score_virustotal(malicious, suspicious):
         score += 15
     return score
 
-def get_virustotal_report(url):
-    try:
-        # Submit URL for scanning
-        submit_url = "https://www.virustotal.com/api/v3/urls"
-        headers = {"x-apikey": VIRUSTOTAL_API_KEY}
-        data = {"url": url}
-        response = requests.post(submit_url, headers=headers, data=data)
-        if response.status_code == 200:
-            analysis_id = response.json()["data"]["id"]
-            # Get analysis report
-            report_url = f"https://www.virustotal.com/api/v3/analyses/{analysis_id}"
-            report_response = requests.get(report_url, headers=headers)
-            if report_response.status_code == 200:
-                stats = report_response.json()["data"]["attributes"]["stats"]
-                return stats["malicious"], stats["suspicious"]
-        return 0, 0
-    except:
-        return 0, 0
-
-def get_abuseipdb_score(ip):
-    try:
-        url = "https://api.abuseipdb.com/api/v2/check"
-        headers = {"Key": ABUSEIPDB_API_KEY, "Accept": "application/json"}
-        params = {"ipAddress": ip, "maxAgeInDays": 90}
-        response = requests.get(url, headers=headers, params=params)
-        if response.status_code == 200:
-            data = response.json()["data"]
-            return data["abuseConfidenceScore"]
-        return 0
-    except:
-        return 0
-
 # -------------------------------
 # Risk Scoring
 # -------------------------------
-def calculate_risk_score(url, domain_age, vt_malicious, vt_suspicious, ip_scores=None):
+def calculate_risk_score(url, domain_age, vt_malicious, vt_suspicious):
     score = 0
     score += score_domain_age(domain_age)
     score += score_keywords(url)
     score += score_virustotal(vt_malicious, vt_suspicious)
-    if ip_scores:
-        score += sum(ip_scores)  # Add IP abuse scores
     return min(score, 100)
 
 def recommendation(score):
@@ -121,21 +86,21 @@ def export_to_csv(rows):
 # Main
 # -------------------------------
 if __name__ == "__main__":
-    with open("samples/phish_password_reset.txt", "r") as f:
+    with open("samples/sample_phishing_email.txt", "r") as f:
         content = f.read()
 
     urls = extract_urls(content)
-    ips = extract_ips(content)
-    ip_scores = [get_abuseipdb_score(ip) for ip in ips]
     results = []
 
     for url in urls:
         domain = url.split("/")[2]
         age = get_domain_age(domain)
 
-        vt_malicious, vt_suspicious = get_virustotal_report(url)
+        # Mock VT values for learning/demo
+        vt_malicious = 12
+        vt_suspicious = 3
 
-        score = calculate_risk_score(url, age, vt_malicious, vt_suspicious, ip_scores)
+        score = calculate_risk_score(url, age, vt_malicious, vt_suspicious)
         results.append([
             url,
             age if age else "Unknown",
