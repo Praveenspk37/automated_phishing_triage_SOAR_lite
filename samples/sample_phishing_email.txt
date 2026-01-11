@@ -1,0 +1,5 @@
+From: HR Support <hr-support@company-secure.com>
+Subject: Immediate Action Required
+
+Please verify your payroll details at the link below:
+http://malicious-example-login.com/verify

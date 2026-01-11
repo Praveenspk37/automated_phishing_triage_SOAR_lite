@@ -1,0 +1,2 @@
+Indicator,Domain Age (Days),VT Malicious,VT Suspicious,Risk Score,Recommendation
+http://malicious-example-login.com/verify,Unknown,12,3,55,Medium Risk – Analyst Review Required
